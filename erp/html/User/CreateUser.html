@@ -1,0 +1,71 @@
+﻿<h2 class="bg-header">Create User</h2>
+<div ng-controller="CreateUserCtrl">
+    <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+    <progressbar class="progress-striped active" value="100" type="info" ng-show="isLoading">Loading...  </progressbar>
+    <div class="panel panel-default">
+        <div class="wrapper-md">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input class="form-control" type="text" ng-model="User.FirstName" ng-change="SetFullName()"/>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>Middle Name</label>
+                    <input class="form-control" type="text" ng-model="User.MiddleName" ng-change="SetFullName()"/>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input class="form-control" type="text" ng-model="User.LastName" ng-change="SetFullName()" />
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input class="form-control" type="text" ng-model="User.Name" />
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>Primary Contact Number</label>
+                    <input class="form-control" type="text" ng-model="User.ContactNumber1" />
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>Secondary Contact Number</label>
+                    <input class="form-control" type="text" ng-model="User.ContactNumber2" />
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input class="form-control" type="text" ng-model="User.EmailAddress" />
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>Date</label>
+                    <div ng-controller="DatepickerDemoCtrl">
+                        <div class="input-group ">
+                            <input type="text" value="{{User.DOB | date:'dd-MMMM-yyyy'}}" class="form-control" datepicker-popup="{{format}}" ng-model="User.DOB" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <label>IsActive</label>
+                <div class="form-group">                    
+                    <input type="checkbox" ng-model="User.IsActive" />
+                </div>
+            </div>
+            <button style="margin-top:25px" class="btn btn-success button-right" ng-click="SaveUser(User)">Save</button>
+        </div>
+    </div>
+</div>

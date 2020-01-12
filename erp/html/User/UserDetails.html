@@ -1,0 +1,76 @@
+﻿<style>
+   table tr th:nth-child(odd) {
+    color:blue;
+}
+</style>
+<div ng-controller="UserDetailsCtrl">
+    <h2 class="bg-header"> {{User.Name}}</h2>
+    <div class="panel">
+        <div class="wrapper-md">
+            <div style="text-align:center">
+                <img src="{{apiUrlPrefix+User.ImagePath}}"style="border-radius:50%;width:150px" />
+            </div>
+            <div style="padding-top:10px" class="col-sm-offset-2 col-sm-8">
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>
+                            First Name
+                        </th>
+                        <td>
+                            {{User.FirstName}}
+                        </td>
+                        <th>
+                            Middle  Name
+                        </th>
+                        <td>
+                            {{User.MiddleName}}
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <th>
+                            Last Name
+                        </th>
+                        <td>
+                            {{User.LastName}}
+                        </td>
+                        <th>
+                            UserId
+                        </th>
+                        <td>
+                            {{User.Id}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Date of Birth
+                        </th>
+                        <td>
+                            {{User.DOB|date:"dd-MMMM-yyyy"}}
+                        </td>
+                        <th>
+                           Primary COntact Number
+                        </th>
+                        <td>
+                            {{User.ContactNumber1}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Secondary Contact Number
+                        </th>
+                        <td>
+                            {{User.ContactNumber2}}
+                        </td>
+                        <th>
+                           IsActive
+                        </th>
+                        <td>
+                            <span class="{{User.IsActive?'glyphicon glyphicon-ok text-success':'glyphicon glyphicon-remove text-danger'}}"></span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

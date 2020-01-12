@@ -1,0 +1,38 @@
+.bg-header{
+    background:dodgerblue;
+    font-weight:bold;
+    color:white;
+    text-align:center;
+}
+.Adjust-Navbar{
+    background: black;
+    min-height: 70px;
+}
+.button-right{
+    float:right;
+    margin-right:10px;
+}
+body{
+    font-family:'Times New Roman';
+}
+.modal-header{
+    background-color:blueviolet;
+    color:white;
+    font-size:large;
+    font-weight:bold;
+    text-align:center;
+}
+.modal-size{    
+    margin-left:20%;
+    margin-top:20%;    
+}
+.modal-body{
+    height:200px;
+    text-align:center;
+    font-size:large;
+    font-weight:bold;
+    background:lightblue;
+}
+.modal-footer{
+    background:linear-gradient(to bottom right, CornflowerBlue , CadetBlue );
+}

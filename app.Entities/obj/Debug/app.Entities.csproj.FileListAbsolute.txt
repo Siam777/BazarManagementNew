@@ -1,0 +1,17 @@
+C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\app.Entities\bin\Debug\app.Entities.dll.config
+C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\app.Entities\bin\Debug\app.Entities.dll
+C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\app.Entities\bin\Debug\app.Entities.pdb
+C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\app.Entities\bin\Debug\EntityFramework.dll
+C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\app.Entities\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\app.Entities\bin\Debug\repository.pattern.dll
+C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\app.Entities\bin\Debug\repository.pattern.ef6.dll
+C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\app.Entities\bin\Debug\LinqKit.dll
+C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\app.Entities\bin\Debug\CommonServiceLocator.dll
+C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\app.Entities\bin\Debug\repository.pattern.ef6.pdb
+C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\app.Entities\bin\Debug\repository.pattern.pdb
+C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\app.Entities\bin\Debug\EntityFramework.xml
+C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\app.Entities\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\app.Entities\bin\Debug\LinqKit.xml
+C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\app.Entities\obj\Debug\app.Entities.csprojResolveAssemblyReference.cache
+C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\app.Entities\obj\Debug\app.Entities.dll
+C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\app.Entities\obj\Debug\app.Entities.pdb

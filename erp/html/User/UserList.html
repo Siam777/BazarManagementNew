@@ -1,0 +1,37 @@
+﻿<h2 class="bg-header">User List</h2>
+<div ng-controller="UserListCtrl">
+    <div class="panel panel-prinary">
+        <div class="wrapper-md">
+            <div class="col-sm-12">
+                <h2 ng-if="UserList.Length==0">No User Found</h2>
+            </div>
+            <table class="table table-striped" ng-if="UserList.length>0">
+                <thead>
+                    <tr>
+                        <th>SL No.</th>
+                       <th>
+                           Name
+                       </th>
+                        <th>User Id</th>   
+                        <th>Primary Contact Number</th> 
+                        <th>IsActive</th>  
+                        <th>Action</th>                  
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="x in UserList">
+                        <td>{{$index+1}}</td>
+                        <td>{{x.Name}}</td>
+                        <td>{{x.Id}}</td>
+                        <td>{{x.ContactNumber1}}</td>
+                        <td><span class="{{x.IsActive?'glyphicon glyphicon-ok text-success':'glyphicon glyphicon-remove text-danger'}}"></span></td>
+                        <td>
+                            <a ui-sref="app.EditUser({Id:x.Id})" style="padding-right:5px" class="text-primary text-md"><span class="glyphicon glyphicon-edit" ></span></a>
+                            <a ui-sref="app.UserDetails({Id:x.Id})" class="text-primary text-md"><i class="fa fa-file-archive-o "></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

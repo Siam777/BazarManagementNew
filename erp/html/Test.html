@@ -1,0 +1,40 @@
+﻿<div ng-controller="testCtrl">
+        <h2>Check</h2>
+        <h2>Check</h2>
+        <h2>Check</h2>
+    <input type="file" multiple="multiple" ngf-select="UploadFiles($files)"/>
+    <button >Upload</button>
+    <br/>
+<ul>
+    <li ng-repeat="file in SelectedFiles">{{file.name}}</li>
+</ul>
+    <div id="divprogress" class="progress" ng-show="progress>=0"></div>
+    <form novalidate name="f1" ng-submit="SaveFile()">
+        <div style="color: red">{{Message}}</div>
+        <table>
+            <tr>
+                <td>Select File : </td>
+                <td>
+                    <input type="file" name="file" accept="image/*" onchange="angular.element(this).scope().selectFileforUpload(this.files)" required />
+                    <span class="error" ng-show="(f1.file.$dirty || IsFormSubmitted) && f1.file.$error.required">Image required!</span>
+                    <span class="error">{{FileInvalidMessage}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Description : </td>
+                <td>
+                    <input type="text" name="uFileDescription" ng-model="FileDescription" class="{{(IsFormSubmitted?'ng-dirty' + (f1.uFileDescription.$invalid?' ng-invalid':''):'')}}" autofocus />
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Upload File" />
+                </td>
+            </tr>
+        </table>
+
+    </form>
+    <button ng-click="GetImage()">GetImage</button>
+    <img ng-if="Image" ng-src="{{apiUrlPrefix + Image}}"/>
+</div>

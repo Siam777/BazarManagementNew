@@ -1,0 +1,113 @@
+﻿<h2 class="bg-header">Create User</h2>
+<div ng-controller="MonthlyActivatedUserCtrl">
+   <div class="panel panel-primary">
+       <div class="wrapper-md">
+           <div class="panel-body">
+               <div class="row">
+                   <form name="form">
+                       <div class="col-sm-4">
+                           <label>Year</label>
+                           <div class="form-group">
+                               <input type="number" ng-model="MonthlyActivatedUser.Year" class="form-control" ng-disabled="true" required />
+                           </div>
+                       </div>
+                       <div class="col-sm-4">
+                           <label>Month</label>
+                           <div class="form-group">
+                               <!--<input type="number" ng-model="MonthlyActivatedUser.MonthId" class="form-control" required />-->
+                               <select ng-model="MonthlyActivatedUser.MonthId" class="form-control" required ng-options="c.Key as c.Value for c in Months">
+                                   <option value="">--Select--</option>
+                               </select>
+                           </div>
+                       </div>
+                       <div class="col-sm-4">
+                           <button style="margin-top:25px" class="btn btn-success" ng-disabled="form.$invalid" ng-click="Search()">Search</button>
+                       </div>
+                   </form>
+               </div>
+           </div>
+       </div>
+   </div>
+    <div class="panel panel-default">
+        <div class="wrapper-md">
+            <div>
+                <button style="margin-top:10px" class="btn btn-primary" ng-if="MonthlyActivatedUserList.length==0" ng-click="Create()">Create</button>
+            </div>
+            <div>
+                <button style="margin-top:10px" class="btn btn-primary" ng-if="MonthlyActivatedUserList.length>0" ng-click="Edit()">Edit</button>
+            </div>
+            <div style="padding-top:10px" class="col-sm-offset-2 col-sm-8" ng-if="dataForMonthlyActivatedUser.length>0 && IsCreateTable">
+                <table class="table table-striped" ng-show="IsCreateTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>UserId</th>
+                            <th>IsActive</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="x in dataForMonthlyActivatedUser">
+                            <td>{{x.Name}}</td>
+                            <td>{{x.UserId}}</td>
+                            <td>
+                                <input type="checkbox" ng-model="x.IsActive"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="height:100px">   
+                    <button class="btn btn-primary button-right" ng-click="Save()">Save</button>                 
+                </div>
+              
+            </div>
+            <div style="padding-top:10px" class="col-sm-offset-2 col-sm-8" ng-if="MonthlyActivatedUserList.length>0 && IsTableShow">
+                <table class="table table-striped" ng-show="IsTableShow">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>UserId</th>
+                            <th>IsActive</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="x in MonthlyActivatedUserList">
+                            <td>{{x.Name}}</td>
+                            <td>{{x.UserId}}</td>
+                            <td>
+                                <span class="{{x.IsActive?'glyphicon glyphicon-ok text-success':'glyphicon glyphicon-remove text-danger'}}"></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="height:100px">
+                  
+                </div>
+
+            </div>
+            <div style="padding-top:10px" class="col-sm-offset-2 col-sm-8" ng-if="EditUserList.length>0 && IsEditTable">
+                <table class="table table-striped" ng-show="IsEditTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>UserId</th>
+                            <th>IsActive</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="x in EditUserList">
+                            <td>{{x.Name}}</td>
+                            <td>{{x.UserId}}</td>
+                            <td>
+                                <input type="checkbox" ng-model="x.IsActive" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="height:100px">
+                    <button class="btn btn-primary button-right" ng-click="Update()">Save</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
