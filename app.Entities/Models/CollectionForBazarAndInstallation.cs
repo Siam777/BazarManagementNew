@@ -16,7 +16,10 @@ namespace app.Entities.Models
         public int MonthId { get; set; }
         public int InstituteId { get; set; }
         public int BazarTypeId { get; set; }
+        public Nullable<DateTime>Date {get;set;}
+        public Nullable<int> Year { get; set; }
         public virtual Institute Institute { get; set; }
+        public List<KeyValuePair<int, string>> BazarTypeList { get; set; }
         public virtual UserInfo UserInfo { get; set; }
     }
 }

@@ -20,7 +20,7 @@ namespace app.Service
         //UserInfo NewUserInfo(int instituteId);
         UserInfo GetUserById(int id);
         UserInfo GetUserAndInstituteInfoByUserId(int id);
-        IEnumerable<VmUserInfo> GetAll(int InstituteId);
+        IEnumerable<VmUserInfo> GetAll(int InstituteId,bool IsGetActive=false);
         VmUserInfo GetUserInfoByUserId(int UserId);
         // UserInfo GetUserDetailsByPinOrMobile(string pin, string contactNo, int instituteId, int userTypeId);
         UserInfo Insert(IUnitOfWorkAsync unitOfWorkAsync, UserInfo userInfo);
@@ -66,10 +66,19 @@ namespace app.Service
                 .Select().FirstOrDefault();
             return userInfo;
         }
-        public IEnumerable<VmUserInfo> GetAll(int InstituteId)
+        public IEnumerable<VmUserInfo> GetAll(int InstituteId,bool IsGetActive=false)
         {
-            var userInfo = _repository.Query(s=>s.InstituteId== InstituteId)
-                .Select().ToList();
+            var userInfo = new List<UserInfo>();
+            if (IsGetActive == true)
+            {
+                 userInfo = _repository.Query(s => s.InstituteId == InstituteId && s.IsActive==true)
+                    .Select().ToList();
+            }
+            else
+            {
+                userInfo = _repository.Query(s => s.InstituteId == InstituteId)
+                    .Select().ToList();
+            }
             IList<VmUserInfo> UserList = new List<VmUserInfo>();
             foreach (UserInfo item in userInfo)
             {

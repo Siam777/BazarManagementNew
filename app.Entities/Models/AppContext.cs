@@ -25,6 +25,7 @@ namespace app.Entities.Models
         public DbSet<BazarType> BazarType { get; set; }
         public DbSet<BazarExpense> BazarExpense { get; set; }
         public DbSet<CollectionForBazarAndInstallation> CollectionForBazarAndInstallation { get; set; }
+        public DbSet<MealManagement> MealManagement { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
            // modelBuilder.Configurations.Add(new C_MigrationMap());
@@ -35,6 +36,7 @@ namespace app.Entities.Models
             modelBuilder.Configurations.Add(new BazarTypeMap());
             modelBuilder.Configurations.Add(new BazarExpenseMap());
             modelBuilder.Configurations.Add(new CollectionForBazarAndInstallationMap());
+            modelBuilder.Configurations.Add(new MealManagementMap());
         }
     }
 }

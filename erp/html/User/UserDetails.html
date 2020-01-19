@@ -5,10 +5,12 @@
 </style>
 <div ng-controller="UserDetailsCtrl">
     <h2 class="bg-header"> {{User.Name}}</h2>
+    <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+    <progressbar class="progress-striped active" value="100" type="info" ng-show="isLoading">Loading...  </progressbar>
     <div class="panel">
         <div class="wrapper-md">
             <div style="text-align:center">
-                <img src="{{apiUrlPrefix+User.ImagePath}}"style="border-radius:50%;width:150px" />
+                <img src="{{apiUrlPrefix+User.ImagePath}}"style="border-radius:50%;width:150px;height:150px" />
             </div>
             <div style="padding-top:10px" class="col-sm-offset-2 col-sm-8">
                 <table class="table table-bordered table-striped">
@@ -49,7 +51,7 @@
                             {{User.DOB|date:"dd-MMMM-yyyy"}}
                         </td>
                         <th>
-                           Primary COntact Number
+                           Primary Contact Number
                         </th>
                         <td>
                             {{User.ContactNumber1}}

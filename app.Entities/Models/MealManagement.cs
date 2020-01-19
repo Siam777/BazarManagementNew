@@ -14,6 +14,9 @@ namespace app.Entities.Models
         public bool IsDay   { get; set; }
         public bool IsNight { get; set;}       
         public int InstituteId { get; set; }
+        public int GuestMeal { get; set; }
+        public int UserId { get; set; }
+       // public string Name;
         public virtual Institute Institute { get; set; }
     }
 }

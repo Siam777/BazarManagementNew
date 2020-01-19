@@ -9,7 +9,7 @@ angular.module('app')
         var isIE = !!navigator.userAgent.match(/MSIE/i);
         isIE && angular.element($window.document.body).addClass('ie');       
         //live        
-        $scope.Name = "Siam";
+        $scope.Name = "Siam Riaz";
         $scope.Check = "Check";
         // config       
 

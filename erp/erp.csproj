@@ -264,6 +264,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\BazarReportController .cs" />
+    <Compile Include="Api\MealManagementController.cs" />
+    <Compile Include="Api\CollectionForBazarAndInstallationController.cs" />
     <Compile Include="Api\BazarExpenseController.cs" />
     <Compile Include="Api\UserInfoController.cs" />
     <Compile Include="App_Start\AttributeRoutingHttpConfig.cs" />
@@ -439,7 +442,11 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="html\app_dashboard_v1.html" />
+    <Content Include="html\BazarExpense\BazarReport.html" />
+    <Content Include="html\BazarExpense\BazarProcess.html" />
+    <Content Include="html\BazarExpense\BazarCollection.html" />
     <Content Include="html\BazarExpense\BazarExpense.html" />
+    <Content Include="html\BazarExpense\MealManagement.html" />
     <Content Include="html\User\EditUser.html" />
     <Content Include="html\User\MonthlyActivatedUser.html" />
     <Content Include="html\User\UserDetails.html" />
@@ -467,6 +474,10 @@
     <Content Include="js\config.lazyload.js" />
     <Content Include="js\config.router.js" />
     <Content Include="js\config.router.settings.js" />
+    <Content Include="js\controllers\Bazar\BazarReport.js" />
+    <Content Include="js\controllers\Bazar\BazarProcess.js" />
+    <Content Include="js\controllers\Bazar\BazarCollection.js" />
+    <Content Include="js\controllers\Bazar\MealManagement.js" />
     <Content Include="js\controllers\bootstrap.js" />
     <Content Include="js\controllers\Dashboard.js" />
     <Content Include="js\controllers\Test.js" />
@@ -478,6 +489,9 @@
     <Content Include="js\controllers\User\UserDetails.js" />
     <Content Include="js\controllers\User\UserList.js" />
     <Content Include="js\Main.js" />
+    <Content Include="js\services\Bazar\BazarReportService.js" />
+    <Content Include="js\services\Bazar\MealManagementService.js" />
+    <Content Include="js\services\Bazar\CollectionService.js" />
     <Content Include="js\services\Bazar\BazarService.js" />
     <Content Include="js\services\ChangePasswordService.js" />
     <Content Include="js\services\DashboardService.js" />

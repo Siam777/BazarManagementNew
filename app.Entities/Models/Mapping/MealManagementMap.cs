@@ -20,6 +20,8 @@ namespace app.Entities.Models.Mapping
             this.Property(t => t.IsDay).HasColumnName("IsDay");
             this.Property(t => t.IsNight).HasColumnName("IsNight");
             this.Property(t => t.InstituteId).HasColumnName("InstituteId");
+            this.Property(t => t.GuestMeal).HasColumnName("GuestMeal");
+            this.Property(t => t.UserId).HasColumnName("UserId");
             this.HasRequired(t => t.Institute)
                  .WithMany(t => t.MealManagement)
                  .HasForeignKey(d => d.InstituteId);

@@ -151,6 +151,7 @@
                         <button class="btn btn-success" ng-click="Cancel()">Cancel</button>
                     </form>
                     <div ng-hide="IsTable">
+                        <div style="margin:2px;text-align:center"><span style="font-weight:bold;color:blue;font-size:Medium">Total Cost: {{TotalCost}} Tk</span></div>
                         <div>
                             <table class="table table-striped">
                                 <thead>
@@ -174,17 +175,17 @@
                                     </div>
 
                                     <div class="col-sm-8 text-right text-center-xs">
-                                        <ul class="pagination pagination-sm m-t-none m-b-none ng-isolate-scope ng-valid">
+                                        <ul class="pagination pagination-sm m-t-none m-b-none ng-isolate-scope ng-valid" style="z-index:0">
                                             <li ng-class="{disabled: currentPage == 0}">
                                                 <a href ng-click="prevPage()"><i class="fa fa-chevron-left"></i></a>
                                             </li>
                                             <li ng-repeat="n in range(pagedItems.length)"
                                                 ng-class="{active: n == currentPage}"
-                                                ng-click="setPage()">
-                                                <a href ng-bind="n + 1">1</a>
+                                                ng-click="setPage()" style="z-index:0">
+                                                <a href ng-bind="n + 1" style="z-index:0">1</a>
                                             </li>
                                             <li ng-class="{disabled: currentPage == pagedItems.length - 1}">
-                                                <a href ng-click="nextPage()"><i class="fa fa-chevron-right"></i></a>
+                                                <a href  style="z-index:0" ng-click="nextPage()"><i class="fa fa-chevron-right"></i></a>
                                             </li>
                                         </ul>
                                     </div>

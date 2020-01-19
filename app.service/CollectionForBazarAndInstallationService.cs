@@ -17,60 +17,88 @@ namespace app.Service
 {
     public interface ICollectionForBazarAndInstallationService : IService<CollectionForBazarAndInstallation>
     {
-        CollectionForBazarAndInstallation NewBazarExpense();
-        IList<CollectionForBazarAndInstallation> GetBazar(int InstituteId,int Year, int MonthId,int BazarTypeId);
-        void Insert(IUnitOfWorkAsync unitOfWorkAsync, CollectionForBazarAndInstallation BazarExpense);       
-        void Update(IUnitOfWorkAsync unitOfWorkAsync, CollectionForBazarAndInstallation BazarExpense);
+        CollectionForBazarAndInstallation NewCollection();
+        IList<VmCollectionForBazarAndInstallation> GetCollection(int InstituteId,int Year, int MonthId,int BazarTypeId,int UserId);
+        void Insert(IUnitOfWorkAsync unitOfWorkAsync, CollectionForBazarAndInstallation Collection);       
+        void Update(IUnitOfWorkAsync unitOfWorkAsync, CollectionForBazarAndInstallation Collection);
         void Delete(int Id, IUnitOfWorkAsync unitOfWorkAsync);
     }
 
-    public class BazarExpenseService:Service<CollectionForBazarAndInstallation>, IBazarExpenseService
+    public class CollectionForBazarAndInstallationService: Service<CollectionForBazarAndInstallation>, ICollectionForBazarAndInstallationService
     {
         private readonly IRepositoryAsync<CollectionForBazarAndInstallation> _repository;
         private readonly IBazarTypeService _bazarTypeService;
-        public BazarExpenseService(IRepositoryAsync<CollectionForBazarAndInstallation> repository,
-           IBazarTypeService bazarTypeService
+        private readonly IUserInfoService _userInfoService;
+        public CollectionForBazarAndInstallationService(IRepositoryAsync<CollectionForBazarAndInstallation> repository,
+           IBazarTypeService bazarTypeService,
+           IUserInfoService userInfoService
            )
             : base(repository)
         {
             _repository = repository;
             _bazarTypeService = bazarTypeService;
+            _userInfoService = userInfoService;
         }
 
-        public CollectionForBazarAndInstallation NewBazarExpense()
+        public CollectionForBazarAndInstallation NewCollection()
         {
             var Collection = new CollectionForBazarAndInstallation();
-            BazarExpense.BazarTypeList = _bazarTypeService.GetKVP();
-            return BazarExpense;
+            Collection.BazarTypeList = _bazarTypeService.GetKVP();
+            return Collection;
         }
         
-        public IList<CollectionForBazarAndInstallation> GetBazar(int InstituteId,int Year,int MonthId,int BazarTypeId)
+        public IList<VmCollectionForBazarAndInstallation> GetCollection(int InstituteId,int Year,int MonthId,int BazarTypeId,int UserId)
         {
-            var BazarExpenseList = _repository.Query(x => x.InstituteId == InstituteId && x.MonthId == MonthId && x.BazarTypeId==BazarTypeId)                
-                .Select().ToList();
-            return BazarExpenseList;
+            var CollectionListUserWise = new List<VmCollectionForBazarAndInstallation>();
+            var CollectionList = new List<CollectionForBazarAndInstallation>();
+            if (UserId != 0)
+            {
+                 CollectionList = _repository.Query(x => x.InstituteId == InstituteId && x.MonthId == MonthId && x.BazarTypeId == BazarTypeId && x.UserId==UserId)
+                    .Select().ToList();
+            }
+            else
+            {
+                CollectionList = _repository.Query(x => x.InstituteId == InstituteId && x.MonthId == MonthId && x.BazarTypeId == BazarTypeId)
+                    .Select().ToList();
+            }
+            foreach(var item in CollectionList)
+            {
+                VmCollectionForBazarAndInstallation collection = new VmCollectionForBazarAndInstallation();
+                var UserInfo = _userInfoService.GetUserInfoByUserId(item.UserId);
+                collection.Id = item.Id;
+                collection.UserId = item.UserId;
+                collection.Year = item.Year;
+                collection.MonthId = item.MonthId;
+                collection.InstituteId = item.InstituteId;
+                collection.Collection = item.Collection;
+                collection.BazarTypeId = item.BazarTypeId;
+                collection.CollectionDate = item.CollectionDate;
+                collection.Name = UserInfo.Name;
+                CollectionListUserWise.Add(collection);
+            }
+            return CollectionListUserWise;
         }
-        public CollectionForBazarAndInstallation GetBazarById(int Id)
+        public CollectionForBazarAndInstallation GetCollectionById(int Id)
         {
             var Collection = _repository.Query(x => x.Id == Id)
                 .Select().SingleOrDefault();
-            return BazarExpense;
+            return Collection;
         }
         public void Insert(IUnitOfWorkAsync unitOfWorkAsync, CollectionForBazarAndInstallation Collection)
         {
             _repository.Insert(Collection);
             unitOfWorkAsync.SaveChanges();            
         }
-        public void Update(IUnitOfWorkAsync unitOfWorkAsync, CollectionForBazarAndInstallation BazarExpense)
+        public void Update(IUnitOfWorkAsync unitOfWorkAsync, CollectionForBazarAndInstallation Collection)
         {           
-            _repository.Update(BazarExpense);
+            _repository.Update(Collection);
             unitOfWorkAsync.SaveChanges();
         }
         public void Delete(int Id,IUnitOfWorkAsync unitOfWorkAsync)
         {
-            BazarExpense Expense = new BazarExpense();
-            Expense = GetBazarById(Id);
-            _repository.Delete(Expense);
+            CollectionForBazarAndInstallation Collection = new CollectionForBazarAndInstallation();
+            Collection = GetCollectionById(Id);
+            _repository.Delete(Collection);
             unitOfWorkAsync.SaveChanges();
         }
     }

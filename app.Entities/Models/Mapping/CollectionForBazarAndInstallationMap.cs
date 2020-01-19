@@ -22,6 +22,8 @@ namespace app.Entities.Models.Mapping
             this.Property(t => t.UserId).HasColumnName("UserId");
             this.Property(t => t.InstituteId).HasColumnName("InstituteId");
             this.Property(t => t.BazarTypeId).HasColumnName("BazarTypeId");
+            this.Property(t => t.Year).HasColumnName("Year");
+            this.Property(t => t.Date).HasColumnName("Date");
             this.HasRequired(t => t.Institute)
                  .WithMany(t => t.CollectionForBazarAndInstallation)
                  .HasForeignKey(d => d.InstituteId);

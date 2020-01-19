@@ -1,0 +1,156 @@
+﻿<style>
+    .OnlyPrint{
+        display:none;
+    }
+    @page {
+        /*size: 10.5in 14.5in;*/
+        margin: 5px;
+        padding: 0;
+        size: landscape;
+    }
+
+    @media print {
+        body{
+            font-family:'Times New Roman';
+        }
+        .print-hide{
+            display:none;
+        }
+        .OnlyPrint{
+            display:block;
+            text-align:center;
+        }
+    }
+        table {
+            page-break-inside: initial;
+        }
+    
+</style>
+<h2 class="bg-header print-hide">Bazar Report</h2>
+<div ng-controller="BazarReportCtrl">
+    <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+    <progressbar class="progress-striped active" value="100" type="info" ng-show="isLoading">Loading...  </progressbar>
+    <div class="panel panel-default " ng-hide="IsSearch">
+        <div class="wrapper-md">
+            <div class="panel-body print-hide">
+                <div class="row">
+                    <form name="BazarReport">
+                        <div class="col-sm-4">
+                            <label>Year</label>
+                            <div class="form-group">                                
+                                <Select class="form-control" ng-model="Bazar.Year" ng-options="c for c in YearList" required>
+                                    <option value="">--Select--</option>
+                                </Select>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <label>Month</label>
+                            <div class="form-group">
+                                <select class="form-control" ng-model="Bazar.MonthId" ng-options="c.Key as c.Value for c in Months" required>
+                                    <option value="">--Select--</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <label>Report Type</label>
+                            <div class="form-group">
+                                <select class="form-control" ng-model="Bazar.BazarReportId" required>
+                                    <option value="">--Select--</option>
+                                    <option value="1">Bazar Report</option>
+                                    <option value="2">Installation Report</option>
+                                </select>
+                            </div>
+                        </div>  
+                        <div style="float:right">
+                            <button style="margin-top:25px" class="btn btn-success button-right" ng-click="GetReport()" ng-disabled="BazarReport.$invalid">Search</button>
+                            <button style="margin-top:25px" class="btn btn-success button-right" ng-click="Prints()" ng-disabled="BazarReport.$invalid">Print</button>
+                        </div>                                  
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="wrapper-md">
+                <div class="row">
+                    <div style="width:100%" class="OnlyPrint">
+                        <h2>{{ReportName}}</h2>                        
+                    </div>
+                    <div class="col-sm-offset-1 col-sm-10" ng-show="IsBazar">
+                        <div style="margin-top:10px;text-align:center">
+                            <span ng-if="TotalBazarCost"><b>Total {{SetReport}} Cost:&nbsp; {{TotalBazarCost}} &nbsp;&nbsp; Month: {{Month}}</b></span>                            
+                        </div>
+                        <table class="table table-responsive table-striped table-bordered" ng-if="BazarList.length>0">
+                            <thead>
+                                <tr>
+                                    <th>SL</th>
+                                    <th>Name</th>
+                                    <th>Total Day</th>
+                                    <th>Total Night</th>
+                                    <th>Guest Meal</th>
+                                    <th>Grace</th>
+                                    <th>Total Meal</th>
+                                    <th>Meal Rate</th>
+                                    <th>To Pay(TK.)</th>
+                                    <th>Paid(Tk)</th>
+                                    <th>Due</th>
+                                    <th>Give Back</th>
+                                </tr>                                
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="x in BazarList">
+                                    <td>
+                                        {{$index+1}}
+
+                                    </td>
+                                    <td>{{x.UserName}}</td>
+                                    <td>{{x.TotalDayMeal}}</td>
+                                    <td>{{x.TotalNightMeal}}</td>
+                                    <td>{{x.TotalGuestMeal}}</td>
+                                    <td>{{x.GraceMeal}}</td>
+                                    <td>{{x.TotalMeal}}</td>
+                                    <td>{{x.MealRate}}</td>
+                                    <td>{{x.AmountToPay}}</td>
+                                    <td>{{x.AmountPaid}}</td>
+                                    <td>{{(x.AmountToPay-x.AmountPaid)>0?((x.AmountToPay-x.AmountPaid)|number:2):'-'}}</td>
+                                    <td>{{(x.AmountPaid-x.AmountToPay)>0?((x.AmountPaid-x.AmountToPay)|number:2):'-'}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>                    
+                    <div style="margin-top:10px" class="col-sm-offset-1 col-sm-10" ng-show="IsInstallation">
+                        <div style="margin-top:10px;text-align:center">
+                            <span>{{Bazar.BazarReportId==1?"Total Bazar Cost: "+TotalBazarCost:"Total Installation Cost :"+TotalBazarCost}}</span>
+                            <span style="margin-left:5px">Month: {{Month}}</span>
+                        </div>
+                        <table class="table table-responsive table-striped table-bordered" ng-if="BazarList.length>0">
+                            <thead>
+                                <tr>
+                                    <th>SL</th>
+                                    <th>Name</th>                                    
+                                    <th>To Pay(TK.)</th>
+                                    <th>Paid(Tk)</th>
+                                    <th>Due</th>
+                                    <th>Give Back</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="x in BazarList">
+                                    <td>
+                                        {{$index+1}}
+
+                                    </td>
+                                    <td>{{x.UserName}}</td>                                    
+                                    <td>{{x.InstallationToPay}}</td>
+                                    <td>{{x.InstallationPaid}}</td>
+                                    <td>{{(x.InstallationToPay-x.InstallationPaid)>0?((x.InstallationToPay-x.InstallationPaid)|number:2):'-'}}</td>
+                                    <td>{{(x.InstallationPaid-x.InstallationToPay)>0?((x.InstallationPaid-x.InstallationToPay)|number:2):'-'}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>        
+</div>

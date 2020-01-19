@@ -53,6 +53,7 @@ namespace erp
             container
                 .RegisterType<IDataContextAsync, AppContext>(new PerRequestLifetimeManager())
                 .RegisterType<IUnitOfWorkAsync, UnitOfWork>(new PerRequestLifetimeManager())
+                .RegisterType<IStoredProcedures, AppContext>(new PerRequestLifetimeManager())
                 .RegisterType<IRepositoryAsync<UserInfo>, Repository<UserInfo>>()
                 .RegisterType<IUserInfoService, UserInfoService>()
                 .RegisterType<IRepositoryAsync<Image>, Repository<Image>>()
@@ -62,7 +63,11 @@ namespace erp
                 .RegisterType<IRepositoryAsync<BazarExpense>, Repository<BazarExpense>>()
                 .RegisterType<IBazarExpenseService,BazarExpenseService>()
                 .RegisterType<IRepositoryAsync<BazarType>, Repository<BazarType>>()
-                .RegisterType<IBazarTypeService, BazarTypeService>();
+                .RegisterType<IBazarTypeService, BazarTypeService>()
+                .RegisterType<IRepositoryAsync<CollectionForBazarAndInstallation>, Repository<CollectionForBazarAndInstallation>>()
+                .RegisterType<ICollectionForBazarAndInstallationService, CollectionForBazarAndInstallationService>()
+                .RegisterType<IRepositoryAsync<MealManagement>, Repository<MealManagement>>()
+                .RegisterType<IMealManagementService, MealManagementService>();
         }
     }
 }

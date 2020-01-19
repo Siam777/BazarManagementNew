@@ -76,3 +76,5 @@ C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\erp\bin\Micr
 C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\erp\bin\LinqKit.xml
 C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\erp\obj\Debug\erp.dll
 C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\erp\obj\Debug\erp.pdb
+C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\erp\bin\Unity.Abstractions.dll
+C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\erp\bin\Unity.Container.dll

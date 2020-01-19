@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>BMA</title>
     @Styles.Render("~/Content/css")    
     @*@Scripts.Render("~/bundles/modernizr")*@
     @Styles.Render("~/bundle/styles")
@@ -12,10 +12,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body ng-controller="AppCtrl" style="height: 100%; width: 100%; margin: 0">
+<body ng-controller="AppCtrl" style="height: 100%; width: 100%; margin: 0;font-family:'Times New Roman'">
     <div class="app" id="app"
          ui-view></div>   
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -25,7 +25,7 @@
                     </button>
                     @*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
                 </div>
-                <div class="navbar-collapse collapse Adjust-Navbar">
+                <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         @*<li>@Html.ActionLink("Home", "Index", "Home")</li>*@
                         @*<li>@Html.ActionLink("About", "About", "Home")</li>
@@ -47,10 +47,10 @@
                             <ul class="dropdown-menu">
                                 <li><a ui-sref="app.BazarExpense">Bazar Expense</a></li>
                                 @*<li><a ui-sref="app.EditUser">Edit User</a></li>*@
-                                <li><a ui-sref="app.BazarExpense">Collection</a></li>
-                                <li><a ui-sref="app.BazarExpense">Meal Management</a></li>
-                                <li><a ui-sref="app.BazarExpense">Process</a></li>
-                                <li><a ui-sref="app.BazarExpense">Report</a></li>
+                                <li><a ui-sref="app.BazarCollection">Collection</a></li>
+                                <li><a ui-sref="app.MealManagement">Meal Management</a></li>
+                                <li><a ui-sref="app.BazarProcess">Process</a></li>
+                                <li><a ui-sref="app.BazarReports">Report</a></li>
                             </ul>
                         </li>
                   </ul>
@@ -59,9 +59,14 @@
             </div>
         </div>
     @RenderBody()    
-        <footer style="position:fixed;text-align:center;color:white;bottom:0;width:100%;background:linear-gradient(to bottom right, red, yellow);z-index:1">
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-            <p>Made By <b>{{Name}}</b></p>
+        <footer style="position:fixed;text-align:center;color:white;bottom:0;width:100%;background:linear-gradient(to bottom right, ForestGreen,Green);z-index:1;font-family:'Times New Roman';font-style:italic">
+            <span>@DateTime.Now.Year Bazar Management Application Made By <b>{{Name}}</b></span>
+            @*<span>&copy; </span>*@   
+            <div onload="display_ct()">
+                Today, <span id="ct"></span>
+                @*<input type="hidden" id="InstituteId" value="78">
+            <input type="hidden" id="InstituteNameHidden" value="STTP">*@
+            </div>         
         </footer>   
     @*@Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")*@
@@ -72,6 +77,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/12.2.13/ng-file-upload.min.js"></script>
     @*<script src="https://code.highcharts.com/highcharts.js"></script>*@
     <script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>
+    <script type="text/javascript" src="https://MomentJS.com/downloads/moment.js"></script>
     @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+    function display_c() {
+        var refresh = 1000; // Refresh rate in milli seconds
+        mytime = setTimeout('TimeDate()', refresh)
+    }
+    //}
+    //display_ct() ;
+    function TimeDate() {
+       // alert("test");
+        var a = new Date();
+        var b = moment(a).format('MMMM Do YYYY, h:mm:ss a');
+        //console.log(b);
+        document.getElementById('ct').innerHTML = moment(new Date()).format('MMMM Do YYYY, h:mm:ss a');
+        display_c();
+    }
+    TimeDate();
+    </script>
 </body>
 </html>

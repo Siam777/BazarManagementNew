@@ -1,0 +1,139 @@
+﻿<h2 class="bg-header">Meal Management</h2>
+<div ng-controller="MealManagementCtrl">
+   <div class="panel panel-primary">
+       <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+       <progressbar class="progress-striped active" value="100" type="info" ng-show="isLoading">Loading...  </progressbar>
+       <div class="wrapper-md">
+           <div class="panel-body">
+               <div class="row">
+                   <form name="form">                      
+                       <div class="col-sm-4">
+                           <div class="form-group">
+                               <label>Date</label>
+                               <div ng-controller="DatepickerDemoCtrl">
+                                   <div class="input-group ">
+                                       <input type="text" value="{{GetMeal.Date | date:'dd-MMMM-yyyy'}}" class="form-control" datepicker-popup="{{format}}" data-ng-model="GetMeal.Date" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                                       <span class="input-group-btn">
+                                           <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                       </span>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="col-sm-4">
+                           <button style="margin-top:25px" class="btn btn-success" ng-disabled="form.$invalid" ng-click="DateFixedforSearch()">Search</button>
+                       </div>
+                   </form>
+               </div>
+           </div>
+       </div>
+   </div>
+    <div class="panel panel-default">
+        <div class="wrapper-md">
+            <div>
+                <button style="margin-top:10px" class="btn btn-primary" ng-if="MealManagementList.length==0" ng-click="Create()" ng-hide="IsCreateBtn">Create</button>
+            </div>
+            <div>
+                <button style="margin-top:10px" class="btn btn-primary" ng-if="MealManagementList.length>0" ng-click="Edit()" ng-hide="IsEditBtn">Edit</button>
+            </div>       
+            <div ng-if="DateForShow" style="text-align:center;font-weight:bold"><span> Date: <label style="font-style:italic;color:Blue;font-size:large">{{DateForShow|date:"dd-MMMM-yyyy"}}</label> (<label style="font-style:italic;color:forestgreen">{{Day}}</label>)</span> </div>     
+            <div style="padding-top:10px" class="col-sm-offset-1 col-sm-9" ng-if="dataForMealManagement.length>0 && IsCreateTable">
+                
+                <table class="table table-striped table-bordered" ng-show="IsCreateTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>UserId</th>                           
+                            <th>IsDay</th>
+                            <th>IsNight</th>
+                            <th>Guest Meal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="x in dataForMealManagement">
+                            <td>{{x.Name}}</td>
+                            <td>{{x.UserId}}</td>
+                            <td>
+                                <input type="checkbox" ng-model="x.IsDay"/>
+                            </td>
+                            <td>
+                                <input type="checkbox" ng-model="x.IsNight" />
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" ng-model="x.GuestMeal" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="height:100px">   
+                    <button class="btn btn-primary button-right" ng-click="Save()">Save</button>                 
+                </div>
+              
+            </div>
+            <div style="padding-top:10px" class="col-sm-offset-1 col-sm-9" ng-if="MealManagementList.length>0 && IsTableShow">
+                <table class="table table-striped table-bordered" ng-show="IsTableShow">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>UserId</th>
+                            <th>IsDay</th>
+                            <th>IsNight</th>
+                            <th>Guest Meal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="x in MealManagementList">
+                            <td>{{x.Name}}</td>
+                            <td>{{x.UserId}}</td>
+                            <td>
+                                <span class="{{x.IsDay?'glyphicon glyphicon-ok text-success':'glyphicon glyphicon-remove text-danger'}}"></span>
+                            </td>
+                            <td>
+                                <span class="{{x.IsNight?'glyphicon glyphicon-ok text-success':'glyphicon glyphicon-remove text-danger'}}"></span>
+                            </td>
+                            <td>
+                                {{x.GuestMeal}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="height:100px">
+                  
+                </div>
+
+            </div>
+            <div style="padding-top:10px" class="col-sm-offset-1 col-sm-9" ng-if="EditUserList.length>0 && IsEditTable">
+                <table class="table table-striped table-bordered" ng-show="IsEditTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>UserId</th>
+                            <th>IsDay</th>
+                            <th>IsNight</th>
+                            <th>Guest Meal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="x in EditUserList">
+                            <td>{{x.Name}}</td>
+                            <td>{{x.UserId}}</td>
+                            <td>
+                                <input type="checkbox" ng-model="x.IsDay" />
+                            </td>
+                            <td>
+                                <input type="checkbox" ng-model="x.IsNight" />
+                            </td>
+                            <td>
+                                <input type="number" ng-model="x.GuestMeal" class="form-control"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="height:100px">
+                    <button class="btn btn-primary button-right" ng-click="Update()">Save</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

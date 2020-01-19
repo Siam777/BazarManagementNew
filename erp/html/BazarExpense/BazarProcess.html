@@ -1,0 +1,32 @@
+﻿<h2 class="bg-header">Bazar Process</h2>
+<div ng-controller="BazarProcessCtrl">
+    <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+    <progressbar class="progress-striped active" value="100" type="info" ng-show="isLoading">Loading...  </progressbar>
+    <div class="panel panel-default">
+        <div class="wrapper-md">
+            <div class="panel-body">
+                <div class="row">
+                    <form name="Bazarform">
+                        <div class="col-sm-4">
+                            <label>Year</label>
+                            <div class="form-group">                                
+                                <Select class="form-control" ng-model="Bazar.Year" ng-options="c for c in YearList" required>
+                                    <option value="">--Select--</option>
+                                </Select>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <label>Month</label>
+                            <div class="form-group">
+                                <select class="form-control" ng-model="Bazar.MonthId" ng-options="c.Key as c.Value for c in Months" required>
+                                    <option value="">--Select--</option>
+                                </select>
+                            </div>
+                        </div>                                                         
+                        <button style="margin-top:25px" class="btn btn-success button-right" ng-click="Process()" ng-disabled="Bazarform.$invalid||BtnDisable">Process</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>       
+</div>

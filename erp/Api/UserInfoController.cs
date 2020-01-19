@@ -34,10 +34,16 @@ namespace erp.Api
         [Route("api/UserInfo/UserInfoSearch")]
         public IEnumerable<VmUserInfo> GetAll()
         {
-           var userInfoes= _userInfoService.GetAll(Sessions.InstituteId);
+           var userInfoes= _userInfoService.GetAll(Sessions.InstituteId,false);
             return userInfoes;
-        }       
-
+        }
+        [HttpGet]
+        [Route("api/UserInfo/GetActivatedUsers")]
+        public IEnumerable<VmUserInfo> GetActivatedUsers()
+        {
+            var userInfoes = _userInfoService.GetAll(Sessions.InstituteId,true);
+            return userInfoes;
+        }
         [HttpPost]
         [Route("api/UserInfo/SaveUserInfo")]
         public UserInfo save(UserInfo userInfo)

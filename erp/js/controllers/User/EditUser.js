@@ -1,15 +1,17 @@
 ﻿'use strict'
-app.controller('EditUserCtrl', ['$scope', '$filter', 'UserInfoService', 'FileUploadService', '$stateParams', '$location', function ($scope, $filter, UserInfoService, FileUploadService, $stateParams, $location) {
+app.controller('EditUserCtrl', ['$scope', '$filter', 'UserInfoService', 'FileUploadService', '$stateParams', '$location','toaster', function ($scope, $filter, UserInfoService, FileUploadService, $stateParams, $location,toaster) {
     $scope.User = {};
     $scope.SetFullName = function () {
-       console.log('test');
+      // console.log('test');
        $scope.User.Name= ($scope.User.FirstName?$scope.User.FirstName + ' ':'') + ($scope.User.MiddleName?$scope.User.MiddleName + ' ':'') + ($scope.User.LastName?$scope.User.LastName:'');
     }
     console.log($stateParams.Id);
     $scope.GetUser = function () {
+        $scope.isLoading = true;
         UserInfoService.GetUserInfoById({ UserId: parseInt($stateParams.Id) }, function (result) {
-            console.log(result);
+            console.log(result);            
             $scope.User = result;
+            $scope.isLoading = false;
         });
     };
     if ($stateParams.Id != null) {
@@ -18,12 +20,14 @@ app.controller('EditUserCtrl', ['$scope', '$filter', 'UserInfoService', 'FileUpl
     }
     
     $scope.SaveUser = function (user) {
+        $scope.isLoading = true;
         if (user.DOB != null) {
             user.DOB = $filter('date')(user.DOB, "yyyy-MM-dd");
         }
         console.log(user);
         UserInfoService.update(user, function (result) {
             console.log(result);
+            $scope.isLoading = false;
             $location.path("/app/user/UserDetails").search({ Id: $stateParams.Id });
            // $scope.GetUser();
         }), function (error) {
@@ -70,12 +74,14 @@ app.controller('EditUserCtrl', ['$scope', '$filter', 'UserInfoService', 'FileUpl
 
     //Save File
     $scope.SaveFile = function () {
+        $scope.isLoading = true;
         $scope.IsFormSubmitted = true;
         $scope.Message = "";
         $scope.ChechFileValid($scope.SelectedFileForUpload);
         if ($scope.SelectedFileForUpload) {
             FileUploadService.UploadFile($scope.SelectedFileForUpload,parseInt($stateParams.Id)).then(function (d) {
                 alert(d.Message);
+                $scope.isLoading = false;
                 $scope.GetUser();
                 //ClearForm();
             }, function (e) {

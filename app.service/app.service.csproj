@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="CollectionForBazarAndInstallationService.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="MealManagementService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ImageService.cs" />
     <Compile Include="MonthlyActivatedUserService.cs" />

@@ -7,69 +7,74 @@
             <tab-heading>
                 General Information
             </tab-heading>
+
             <div class="wrapper-md">
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label>First Name</label>
-                        <input class="form-control" type="text" ng-model="User.FirstName" ng-change="SetFullName()" />
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label>Middle Name</label>
-                        <input class="form-control" type="text" ng-model="User.MiddleName" ng-change="SetFullName()" />
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label>Last Name</label>
-                        <input class="form-control" type="text" ng-model="User.LastName" ng-change="SetFullName()" />
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label>Full Name</label>
-                        <input class="form-control" type="text" ng-model="User.Name" />
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label>Primary Contact Number</label>
-                        <input class="form-control" type="text" ng-model="User.ContactNumber1" />
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label>Secondary Contact Number</label>
-                        <input class="form-control" type="text" ng-model="User.ContactNumber2" />
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input class="form-control" type="text" ng-model="User.EmailAddress" />
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label>DOB</label>
-                        <div ng-controller="DatepickerDemoCtrl">
-                            <div class="input-group ">
-                                <input type="text" value="{{User.DOB | date:'dd-MMMM-yyyy'}}" class="form-control" datepicker-popup="{{format}}" ng-model="User.DOB" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
-                                <span class="input-group-btn">
-                                    <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                                </span>
+                <form name="EditUser">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>First Name</label>
+                                <input class="form-control" type="text" ng-model="User.FirstName" ng-change="SetFullName()" />
                             </div>
                         </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Middle Name</label>
+                                <input class="form-control" type="text" ng-model="User.MiddleName" ng-change="SetFullName()" />
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input class="form-control" type="text" ng-model="User.LastName" ng-change="SetFullName()" />
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input class="form-control" type="text" ng-model="User.Name" required />
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Primary Contact Number</label>
+                                <input class="form-control" type="text" ng-model="User.ContactNumber1" />
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Secondary Contact Number</label>
+                                <input class="form-control" type="text" ng-model="User.ContactNumber2" />
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input class="form-control" type="text" ng-model="User.EmailAddress" />
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>DOB</label>
+                                <div ng-controller="DatepickerDemoCtrl">
+                                    <div class="input-group ">
+                                        <input type="text" value="{{User.DOB | date:'dd-MMMM-yyyy'}}" class="form-control" datepicker-popup="{{format}}" ng-model="User.DOB" is-open="opened" datepicker-options="dateOptions" close-text="Close" />
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <label>IsActive</label>
+                            <div class="form-group">
+                                <input type="checkbox" ng-model="User.IsActive" />
+                            </div>
+                        </div>
+                        <button style="margin-top:25px;margin-right:20px" class="btn btn-success button-right" ng-disabled="EditUser.$invalid" ng-click="SaveUser(User)">Save</button>
                     </div>
-                </div>
-                <div class="col-sm-4">
-                    <label>IsActive</label>
-                    <div class="form-group">
-                        <input type="checkbox" ng-model="User.IsActive" />
-                    </div>
-                </div>
-                <button style="margin-top:25px" class="btn btn-success button-right" ng-click="SaveUser(User)">Save</button>
+                </form>
             </div>
             </tab>
         <tab heading="Photo Information">
@@ -78,32 +83,34 @@
             </tab-heading>
             <!--<form novalidate name="f1" ng-submit="SaveFile()">-->
                 <div style="color: red">{{Message}}</div>
+            <div style="margin-left:25px">
                 <table>
                     <tr>
-                        <td><img style="width:70px;height:100px" ng-if="User.ImagePath" ng-src="{{apiUrlPrefix + User.ImagePath}}" /></td>
+                        <td><img style="width:70px;height:100px" ng-if="User.ImagePath" ng-src="{{apiUrlPrefix + User.ImagePath}}"/></td>
                     </tr>
                     <tr>
                         <td>Select File : </td>
                         <td>
                             <input type="file" class="form-control" name="file" accept="image/*" onchange="angular.element(this).scope().selectFileforUpload(this.files)" required />
                             <!--<span class="error" ng-show="(f1.file.$dirty || IsFormSubmitted) && f1.file.$error.required">Image required!</span>
-                            <span class="error">{{FileInvalidMessage}}</span>-->
+                    <span class="error">{{FileInvalidMessage}}</span>-->
                         </td>
                     </tr>
                     <!--<tr>
-                        <td>Description : </td>
-                        <td>
-                            <input type="text" name="uFileDescription" ng-model="FileDescription" class="{{(IsFormSubmitted?'ng-dirty' + (f1.uFileDescription.$invalid?' ng-invalid':''):'')}}" autofocus />
-                        </td>
-                    </tr>-->
+                <td>Description : </td>
+                <td>
+                    <input type="text" name="uFileDescription" ng-model="FileDescription" class="{{(IsFormSubmitted?'ng-dirty' + (f1.uFileDescription.$invalid?' ng-invalid':''):'')}}" autofocus />
+                </td>
+            </tr>-->
                     <tr>
                         <td></td>
                         <td>
-                            <input type="submit" value="Upload File" ng-click="SaveFile()"/>
+                            <input type="submit" class="btn-primary" value="Upload File" ng-click="SaveFile()" />
                         </td>
                     </tr>
                 </table>
 
+            </div>
             <!--</form>-->
         </tab>
           </tabset>

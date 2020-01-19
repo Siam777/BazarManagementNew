@@ -47,6 +47,7 @@ app.controller('BazarExpenseCtrl', ['$scope', 'BazarService','toaster', '$locati
         $scope.BazarExpense.MonthId = month;
         $scope.IsSearch = true;
         $scope.IsCreate = false;
+        $scope.IsCreatebtn = true;
     }
     $scope.Cancel = function () {        
         $scope.IsSearch = false;
@@ -54,6 +55,8 @@ app.controller('BazarExpenseCtrl', ['$scope', 'BazarService','toaster', '$locati
         $scope.IsEdit = true;
         $scope.IsTable = false;
         $scope.IsCreatebtn = false;
+        $scope.BazarExpense = {};
+        $scope.EditBazarExpense = {};
     }
     $scope.Edit = function (item) {
         $scope.IsTable = true;
@@ -70,7 +73,17 @@ app.controller('BazarExpenseCtrl', ['$scope', 'BazarService','toaster', '$locati
             BazarTypeId: $scope.Bazar.BazarTypeId
         }, function (result) {
             $scope.BazarList = result;
-           // $scope.BazarList.sort(function (a, b) { return a.Date.getTime() - b.Date.getTime() });
+            var ListLength =$scope.BazarList.length;
+            var TotalCost = 0;
+            for (var i = 0; i < ListLength; i++) {
+                TotalCost += $scope.BazarList[i].Expense;
+            }
+            $scope.TotalCost = TotalCost;
+            $scope.BazarList.sort(function (a, b) { 
+                var DateA = new Date(a.Date);
+                var DateB = new Date(b.Date);
+                return DateB - DateA;
+            });
             console.log(result);
             $scope.currentPage = 0;
             $scope.BazarItem = $scope.BazarList;
@@ -136,6 +149,7 @@ app.controller('BazarExpenseCtrl', ['$scope', 'BazarService','toaster', '$locati
             $scope.IsSearch = false;
             $scope.IsCreate = true;
             $scope.IsEdit = true;
+            $scope.BazarExpense = {};
             toaster.pop("success", "Succcessfully Saved");
             $scope.GetAll();
             $scope.isLoading = false;
@@ -154,6 +168,8 @@ app.controller('BazarExpenseCtrl', ['$scope', 'BazarService','toaster', '$locati
             $scope.IsSearch = false;
             $scope.IsCreate = true;
             $scope.IsEdit = true;
+            $scope.IsCreatebtn = false;
+            $scope.EditBazarExpense = {};
             toaster.pop("success", "Succcessfully Updated");
             $scope.GetAll();
             $scope.isLoading = false;
@@ -171,8 +187,9 @@ app.controller('BazarExpenseCtrl', ['$scope', 'BazarService','toaster', '$locati
         $scope.isLoading = true;
         BazarService.Delete({ Id: Id }, function (result) {
             toaster.pop("success", "Succcessfully Deleted");
-            $scope.isLoading = false;
             angular.element("#BazarExpenseModal").modal("hide");
+            $scope.GetAll();
+            $scope.isLoading = false;           
         })
     }
 }]

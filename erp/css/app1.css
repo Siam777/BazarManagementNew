@@ -1,5 +1,8 @@
+body{
+    font-family:'Times New Roman';
+}
 .bg-header{
-    background:dodgerblue;
+    background:teal;
     font-weight:bold;
     color:white;
     text-align:center;
@@ -35,4 +38,9 @@ body{
 }
 .modal-footer{
     background:linear-gradient(to bottom right, CornflowerBlue , CadetBlue );
+}
+.navbar-default{
+    background-color: lavender!important;
+    font-size: medium;   
+    font-family: Times New Roman;    
 }

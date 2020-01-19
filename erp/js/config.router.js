@@ -159,6 +159,71 @@ angular.module('app').run(
                       }]
                 }
             })
+            .state('app.BazarCollection', {
+                url: '/Bazar/Collection',
+                templateUrl: urlPrefix + 'html/BazarExpense/BazarCollection.html',
+                resolve: {
+                    deps: ['$ocLazyLoad',
+                      function ($ocLazyLoad) {
+                          return $ocLazyLoad.load(['toaster']).then(
+                        function () {
+                            return $ocLazyLoad.load([urlPrefix + 'js/controllers/Bazar/BazarCollection.js',
+                                          urlPrefix + 'js/services/Bazar/CollectionService.js',
+                            ]);
+                        }
+                         );
+                      }]
+                }
+            })
+            .state('app.MealManagement', {
+                url: '/Bazar/MealManagement',
+                templateUrl: urlPrefix + 'html/BazarExpense/MealManagement.html',
+                resolve: {
+                    deps: ['$ocLazyLoad',
+                      function ($ocLazyLoad) {
+                          return $ocLazyLoad.load(['toaster']).then(
+                        function () {
+                            return $ocLazyLoad.load([urlPrefix + 'js/controllers/Bazar/MealManagement.js',
+                                          urlPrefix + 'js/services/Bazar/MealManagementService.js',
+                                          urlPrefix + 'js/services/UserInfo/UserInfoService.js'
+                            ]);
+                        }
+                         );
+                      }]
+                }
+            })
+            .state('app.BazarProcess', {
+                url: '/Bazar/BazarProcess',
+                templateUrl: urlPrefix + 'html/BazarExpense/BazarProcess.html',
+                resolve: {
+                    deps: ['$ocLazyLoad',
+                      function ($ocLazyLoad) {
+                          return $ocLazyLoad.load(['toaster']).then(
+                        function () {
+                            return $ocLazyLoad.load([urlPrefix + 'js/controllers/Bazar/BazarProcess.js',
+                                          urlPrefix + 'js/services/Bazar/BazarReportService.js'                                         
+                            ]);
+                        }
+                         );
+                      }]
+                }
+            })
+            .state('app.BazarReports', {
+                url: '/Bazar/BazarReports',
+                templateUrl: urlPrefix + 'html/BazarExpense/BazarReport.html',
+                resolve: {
+                    deps: ['$ocLazyLoad',
+                      function ($ocLazyLoad) {
+                          return $ocLazyLoad.load(['toaster']).then(
+                        function () {
+                            return $ocLazyLoad.load([urlPrefix + 'js/controllers/Bazar/BazarReport.js',
+                                          urlPrefix + 'js/services/Bazar/BazarReportService.js'
+                            ]);
+                        }
+                         );
+                      }]
+                }
+            })
         }
     ]
   );
