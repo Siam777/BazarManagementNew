@@ -134,6 +134,7 @@
     <Compile Include="ViewModels\VmBazarReport.cs" />
     <Compile Include="ViewModels\VmMonthlyActivatedUser.cs" />
     <Compile Include="ViewModels\VmMealManagement.cs" />
+    <Compile Include="ViewModels\VmMealInfo.cs" />
     <Compile Include="ViewModels\VmUserInfo.cs" />
   </ItemGroup>
   <ItemGroup>

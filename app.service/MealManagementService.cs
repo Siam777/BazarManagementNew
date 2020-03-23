@@ -50,6 +50,7 @@ namespace app.Service
                 }
                 else
                 {
+                    obj.InstituteId = InstituteId;
                     _repository.Update(obj);
                 }
             }

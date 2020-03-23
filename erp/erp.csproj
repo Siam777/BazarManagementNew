@@ -264,7 +264,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Api\BazarReportController .cs" />
+    <Compile Include="Api\BazarReportController.cs" />
     <Compile Include="Api\MealManagementController.cs" />
     <Compile Include="Api\CollectionForBazarAndInstallationController.cs" />
     <Compile Include="Api\BazarExpenseController.cs" />
@@ -447,6 +447,7 @@
     <Content Include="html\BazarExpense\BazarCollection.html" />
     <Content Include="html\BazarExpense\BazarExpense.html" />
     <Content Include="html\BazarExpense\MealManagement.html" />
+    <Content Include="html\BazarExpense\MonthlyMealInfo.html" />
     <Content Include="html\User\EditUser.html" />
     <Content Include="html\User\MonthlyActivatedUser.html" />
     <Content Include="html\User\UserDetails.html" />
@@ -478,6 +479,7 @@
     <Content Include="js\controllers\Bazar\BazarProcess.js" />
     <Content Include="js\controllers\Bazar\BazarCollection.js" />
     <Content Include="js\controllers\Bazar\MealManagement.js" />
+    <Content Include="js\controllers\Bazar\MonthlyMealInfo.js" />
     <Content Include="js\controllers\bootstrap.js" />
     <Content Include="js\controllers\Dashboard.js" />
     <Content Include="js\controllers\Test.js" />

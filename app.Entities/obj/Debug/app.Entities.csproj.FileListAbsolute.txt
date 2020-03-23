@@ -35,3 +35,40 @@ C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\app.Entities
 C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\app.Entities\obj\Debug\app.Entities.csproj.App.config
 C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\app.Entities\bin\Debug\System.Data.Common.dll
 C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\app.Entities\bin\Debug\System.Data.SqlClient.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\bin\Debug\app.Entities.dll.config
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\bin\Debug\app.Entities.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\bin\Debug\app.Entities.pdb
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\bin\Debug\Dapper.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\bin\Debug\DapperExtensions.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\bin\Debug\EntityFramework.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\bin\Debug\EntityFramework.SqlServer.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\bin\Debug\Microsoft.Threading.Tasks.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\bin\Debug\Microsoft.Threading.Tasks.Extensions.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\bin\Debug\Newtonsoft.Json.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\bin\Debug\repository.pattern.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\bin\Debug\repository.pattern.ef6.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\bin\Debug\System.Data.Common.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\bin\Debug\System.Data.SqlClient.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\bin\Debug\System.Net.Http.Extensions.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\bin\Debug\System.Net.Http.Primitives.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\bin\Debug\LinqKit.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\bin\Debug\CommonServiceLocator.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\bin\Debug\repository.pattern.ef6.pdb
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\bin\Debug\repository.pattern.pdb
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\bin\Debug\Dapper.pdb
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\bin\Debug\DapperExtensions.pdb
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\bin\Debug\EntityFramework.xml
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\bin\Debug\EntityFramework.SqlServer.xml
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\bin\Debug\Microsoft.Threading.Tasks.xml
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\bin\Debug\Microsoft.Threading.Tasks.Extensions.xml
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\bin\Debug\Newtonsoft.Json.xml
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\bin\Debug\System.Net.Http.Extensions.xml
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\bin\Debug\System.Net.Http.Primitives.xml
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\bin\Debug\LinqKit.xml
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\obj\Debug\app.Entities.csproj.App.config
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\obj\Debug\app.Entities.csprojResolveAssemblyReference.cache
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\obj\Debug\app.Entities.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\app.Entities\obj\Debug\app.Entities.pdb

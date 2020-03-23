@@ -44,3 +44,27 @@ body{
     font-size: medium;   
     font-family: Times New Roman;    
 }
+.dropdown-menu {
+    border: 1px solid #dee5e7;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.form-control {
+    border-color: #cfdadd;
+    border-radius: 2px;
+}
+body {
+    font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.42857143;
+    color: #58666e;
+    background-color: transparent;
+}
+.btn {
+    font-weight: 500;
+    border-radius: 2px;
+    outline: 0 !important;
+}

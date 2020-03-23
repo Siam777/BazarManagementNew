@@ -42,6 +42,12 @@ namespace erp.Api
             var List = _storeProcedures.GetBazarReport(Sessions.InstituteId, MonthId, Year, BazarReportId);
             return List;
         }
-       
+        [HttpGet]
+        [Route("api/BazarReport/GetMealInfo")]
+        public List<VmMealInfo> GetMealInfo(int MonthId, int Year)
+        {
+            var List = _storeProcedures.MonthlyMealInfo(Sessions.InstituteId, MonthId,Year);
+            return List;
+        }
     }
 }

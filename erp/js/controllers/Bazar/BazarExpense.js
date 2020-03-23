@@ -7,7 +7,7 @@ app.controller('BazarExpenseCtrl', ['$scope', 'BazarService','toaster', '$locati
     $scope.BazarExpense = {};
     $scope.IsTable = true;
     $scope.IsCreatebtn = false;
-    $scope.itemsPerPage = 8;
+    $scope.itemsPerPage = 20;
     $scope.GetNew = function () {
         BazarService.GetNew(function (result) {
             $scope.BazarTypeList = result.BazarTypeList;
@@ -73,7 +73,10 @@ app.controller('BazarExpenseCtrl', ['$scope', 'BazarService','toaster', '$locati
             BazarTypeId: $scope.Bazar.BazarTypeId
         }, function (result) {
             $scope.BazarList = result;
-            var ListLength =$scope.BazarList.length;
+            var ListLength = $scope.BazarList.length;
+            
+                $scope.IsCreatebtn = false;
+           
             var TotalCost = 0;
             for (var i = 0; i < ListLength; i++) {
                 TotalCost += $scope.BazarList[i].Expense;

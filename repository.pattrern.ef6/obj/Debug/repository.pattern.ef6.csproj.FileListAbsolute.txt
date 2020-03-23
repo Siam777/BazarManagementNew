@@ -19,3 +19,24 @@ C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\repository.p
 C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\repository.pattrern.ef6\obj\Debug\repository.pattern.ef6.csprojResolveAssemblyReference.cache
 C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\repository.pattrern.ef6\obj\Debug\repository.pattern.ef6.dll
 C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\repository.pattrern.ef6\obj\Debug\repository.pattern.ef6.pdb
+D:\Study and Software\Bazar Management\BazarManagementNew\repository.pattrern.ef6\bin\Debug\repository.pattern.ef6.dll.config
+D:\Study and Software\Bazar Management\BazarManagementNew\repository.pattrern.ef6\bin\Debug\repository.pattern.ef6.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\repository.pattrern.ef6\bin\Debug\repository.pattern.ef6.pdb
+D:\Study and Software\Bazar Management\BazarManagementNew\repository.pattrern.ef6\bin\Debug\CommonServiceLocator.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\repository.pattrern.ef6\bin\Debug\EntityFramework.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\repository.pattrern.ef6\bin\Debug\EntityFramework.SqlServer.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\repository.pattrern.ef6\bin\Debug\LinqKit.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\repository.pattrern.ef6\bin\Debug\repository.pattern.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\repository.pattrern.ef6\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\repository.pattrern.ef6\bin\Debug\Unity.Abstractions.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\repository.pattrern.ef6\bin\Debug\Unity.Container.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\repository.pattrern.ef6\bin\Debug\repository.pattern.pdb
+D:\Study and Software\Bazar Management\BazarManagementNew\repository.pattrern.ef6\bin\Debug\EntityFramework.xml
+D:\Study and Software\Bazar Management\BazarManagementNew\repository.pattrern.ef6\bin\Debug\EntityFramework.SqlServer.xml
+D:\Study and Software\Bazar Management\BazarManagementNew\repository.pattrern.ef6\bin\Debug\LinqKit.xml
+D:\Study and Software\Bazar Management\BazarManagementNew\repository.pattrern.ef6\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Study and Software\Bazar Management\BazarManagementNew\repository.pattrern.ef6\bin\Debug\Unity.Abstractions.pdb
+D:\Study and Software\Bazar Management\BazarManagementNew\repository.pattrern.ef6\bin\Debug\Unity.Container.pdb
+D:\Study and Software\Bazar Management\BazarManagementNew\repository.pattrern.ef6\obj\Debug\repository.pattern.ef6.csprojResolveAssemblyReference.cache
+D:\Study and Software\Bazar Management\BazarManagementNew\repository.pattrern.ef6\obj\Debug\repository.pattern.ef6.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\repository.pattrern.ef6\obj\Debug\repository.pattern.ef6.pdb

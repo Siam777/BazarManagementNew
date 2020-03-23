@@ -1,0 +1,152 @@
+﻿<h2 class="bg-header print-hide">Monthly Meal Info</h2>
+<div ng-controller="MonthlyMealCtrl">
+    <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+    <progressbar class="progress-striped active" value="100" type="info" ng-show="isLoading">Loading...  </progressbar>
+    <div class="panel panel-default " ng-hide="IsSearch">
+        <div class="wrapper-md">
+            <div class="panel-body print-hide">
+                <div class="row">
+                    <form name="BazarReport">
+                        <div class="col-sm-3">
+                            <label>Year</label>
+                            <div class="form-group">
+                                <Select class="form-control" ng-model="Bazar.Year" ng-options="c for c in YearList" required>
+                                    <option value="">--Select--</option>
+                                </Select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <label>Month</label>
+                            <div class="form-group">
+                                <select class="form-control" ng-model="Bazar.MonthId" ng-options="c.Key as c.Value for c in Months" required>
+                                    <option value="">--Select--</option>
+                                </select>
+                            </div>
+                        </div>                        
+                        <div>
+                            <button style="margin-top:25px" class="btn btn-success" ng-click="GetMealInfo()" ng-disabled="BazarReport.$invalid">Search</button>
+                            <!--<button style="margin-top:25px" class="btn btn-success" ng-click="Create()" ng-disabled="BazarReport.$invalid">Create</button>-->
+                            <!--<button style="margin-top:25px" class="btn btn-success button-right" ng-click="Prints()" ng-disabled="BazarReport.$invalid">Print</button>-->
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+    <h2 style="text-align:center;font-family:'Times New Roman';font-style:italic;font-weight:bold;background:lightblue" ng-if="MonthName">{{MonthName}}</h2>
+    <div style="margin-left:20px;margin-bottom:10px">        
+        <button style="margin-top:10px;" class="btn btn-success" ng-click="Create()" ng-hide="CreateButtonHide">Create</button>
+        <button style="margin-top:10px" class="btn btn-success" ng-click="Edit()" ng-hide="EditButtonHide">Update</button>
+    </div>
+    <div class="panel panel-primary" ng-hide="IsInfoFound" ng-if="PrecisedMealInfo.length>0">
+        <div class="wrapper-md">
+            <div class="panel-body" style="overflow-x:auto">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th rowspan="2">Name</th>
+                            <th ng-repeat="d in Date" colspan="3">{{d|date:"dd"}}</th>
+                            <th>Total Meal</th>
+                        </tr>
+                        <tr>
+                            <!--<th>
+
+                            </th>-->
+                            <th ng-repeat-start="x in Dates">
+                                Day
+                            </th>
+                            <th>Night</th>
+                            <th ng-repeat-end>Guest</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="x in PrecisedMealInfo" data-toggle="tooltip" tooltip title="{{x.Name}}">
+                            <td>{{x.Name}}</td>
+                            <td ng-repeat-start="y in x.MealInfo"><span class="{{y.IsDay==true?'glyphicon glyphicon-ok text-success':'glyphicon glyphicon-remove text-danger'}}"></span></td>
+                            <td><span class="{{y.IsNight==true?'glyphicon glyphicon-ok text-success':'glyphicon glyphicon-remove text-danger'}}"></span></td>
+                            <td ng-repeat-end>{{y.GuestMeal}}</td>
+                            <td>{{x.TotalMonthlyMeal}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-primary" ng-hide="IsCreateTableShow">
+        <div class="wrapper-md">
+            <div class="panel-body" style="overflow-x:auto">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <!--<th>Name</th>-->
+                            <th rowspan="3">Name</th>
+                            <th ng-repeat="d in Dates" colspan="3">{{d|date:"dd"}}</th>
+                            <th>Total Meal</th>
+
+                        </tr>
+                        <tr>                           
+                            <th ng-repeat-start="a in ArrayRange track by $index">Day</th>
+                            <th>Night</th>
+                            <th ng-repeat-end>Guest</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="x in dataForMealManagement" data-toggle="tooltip" tooltip title="{{x.Name}}">
+                            <td>{{x.Name}}</td>
+                            <td ng-repeat-start="y in x.MealInfo" style="display:none"></td>
+                            <td><input type="checkbox" ng-model="y.IsDay" /></td>
+                            <td><input type="checkbox" ng-model="y.IsNight"  /></td>
+                            <td ng-repeat-end><input type="number" ng-model="y.GuestMeal" style="width:50px" /></td>
+                            <td ng-repeat-end style="display:none"></td>
+                            <td>{{x.TotalMonthlyMeal}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-primary" ng-click="SaveMonthlyInfo()">Save</button>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-primary" ng-hide="IsEditTableShow">
+        <div class="wrapper-md">
+            <div class="panel-body" style="overflow-x:auto">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <!--<th>Name</th>-->
+                            <th rowspan="3">Name</th>
+                            <th ng-repeat="d in Dates" colspan="3">{{d|date:"dd"}}</th>
+                            <th>Total Meal</th>
+
+                        </tr>
+                        <tr>
+                            <th ng-repeat-start="a in ArrayRange track by $index">Day</th>
+                            <th>Night</th>
+                            <th ng-repeat-end>Guest</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="x in EditMonthlyData" data-toggle="tooltip" tooltip title="{{x.Name}}">
+                            <td>{{x.Name}}</td>
+                            <td ng-repeat-start="y in x.MealInfo" style="display:none"></td>
+                            <td><input type="checkbox" ng-model="y.IsDay" /></td>
+                            <td><input type="checkbox" ng-model="y.IsNight" /></td>
+                            <td ng-repeat-end><input type="number" ng-model="y.GuestMeal" style="width:50px" /></td>
+                            <td ng-repeat-end style="display:none"></td>
+                            <td>{{x.TotalMonthlyMeal}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-danger" ng-click="Update()">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .table th,td{
+        text-align:center;
+    }
+</style>

@@ -112,5 +112,16 @@ namespace app.Entities.Models
             cmd.Dispose();
             return Msg;
         }
+        public List<VmMealInfo> MonthlyMealInfo(int InstituteId, int MonthId, int Year)
+        {
+            var Institute = new SqlParameter("@InstituteId", SqlDbType.Int);
+            Institute.Value = InstituteId;
+            var Month = new SqlParameter("@MonthId", SqlDbType.Int);
+            Month.Value = MonthId;
+            var year = new SqlParameter("@Year", SqlDbType.Int);
+            year.Value = Year;            
+            var List = Database.SqlQuery<VmMealInfo>("MonthlyMealInfo @InstituteId, @MonthId,@Year", Institute, Month, year).ToList();
+            return List;
+        }
     }
 }

@@ -17,3 +17,22 @@ C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\repositorypa
 C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\repositorypattern\obj\Debug\repository.pattern.csprojResolveAssemblyReference.cache
 C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\repositorypattern\obj\Debug\repository.pattern.dll
 C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\repositorypattern\obj\Debug\repository.pattern.pdb
+D:\Study and Software\Bazar Management\BazarManagementNew\repositorypattern\bin\Debug\repository.pattern.dll.config
+D:\Study and Software\Bazar Management\BazarManagementNew\repositorypattern\bin\Debug\repository.pattern.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\repositorypattern\bin\Debug\repository.pattern.pdb
+D:\Study and Software\Bazar Management\BazarManagementNew\repositorypattern\bin\Debug\CommonServiceLocator.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\repositorypattern\bin\Debug\EntityFramework.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\repositorypattern\bin\Debug\EntityFramework.SqlServer.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\repositorypattern\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\repositorypattern\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\repositorypattern\bin\Debug\Unity.Abstractions.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\repositorypattern\bin\Debug\Unity.Container.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\repositorypattern\bin\Debug\EntityFramework.xml
+D:\Study and Software\Bazar Management\BazarManagementNew\repositorypattern\bin\Debug\EntityFramework.SqlServer.xml
+D:\Study and Software\Bazar Management\BazarManagementNew\repositorypattern\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Study and Software\Bazar Management\BazarManagementNew\repositorypattern\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Study and Software\Bazar Management\BazarManagementNew\repositorypattern\bin\Debug\Unity.Abstractions.pdb
+D:\Study and Software\Bazar Management\BazarManagementNew\repositorypattern\bin\Debug\Unity.Container.pdb
+D:\Study and Software\Bazar Management\BazarManagementNew\repositorypattern\obj\Debug\repository.pattern.csprojResolveAssemblyReference.cache
+D:\Study and Software\Bazar Management\BazarManagementNew\repositorypattern\obj\Debug\repository.pattern.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\repositorypattern\obj\Debug\repository.pattern.pdb

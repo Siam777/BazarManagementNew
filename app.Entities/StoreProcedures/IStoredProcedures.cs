@@ -11,7 +11,8 @@ namespace app.Entities.Models
          List<VmUserInfo> GetUserInfo(int InstituteId, string SearchItem);
          List<VmMealManagement> GetMealManagementList(int InstituteId, string Date);
          List<VmBazarReport> GetBazarReport(int InstituteId, int MonthId, int Year, int ReportTypeId);
-        string BazarProcess(int InstituteId, int MonthId, int Year);
+         string BazarProcess(int InstituteId, int MonthId, int Year);
+         List<VmMealInfo> MonthlyMealInfo(int InstituteId, int Year, int Month);
 
     }
 }

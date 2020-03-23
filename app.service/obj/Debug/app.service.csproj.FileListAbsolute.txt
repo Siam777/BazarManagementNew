@@ -19,3 +19,24 @@ C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\app.service\
 C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\app.service\obj\Debug\app.service.csprojResolveAssemblyReference.cache
 C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\app.service\obj\Debug\app.service.dll
 C:\Users\Siam\documents\visual studio 2015\Projects\BazarManagement\app.service\obj\Debug\app.service.pdb
+D:\Study and Software\Bazar Management\BazarManagementNew\app.service\bin\Debug\app.service.dll.config
+D:\Study and Software\Bazar Management\BazarManagementNew\app.service\bin\Debug\app.service.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\app.service\bin\Debug\app.service.pdb
+D:\Study and Software\Bazar Management\BazarManagementNew\app.service\bin\Debug\app.Entities.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\app.service\bin\Debug\EntityFramework.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\app.service\bin\Debug\EntityFramework.SqlServer.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\app.service\bin\Debug\LinqKit.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\app.service\bin\Debug\repository.pattern.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\app.service\bin\Debug\repository.pattern.ef6.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\app.service\bin\Debug\service.pattern.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\app.service\bin\Debug\CommonServiceLocator.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\app.service\bin\Debug\app.Entities.pdb
+D:\Study and Software\Bazar Management\BazarManagementNew\app.service\bin\Debug\repository.pattern.ef6.pdb
+D:\Study and Software\Bazar Management\BazarManagementNew\app.service\bin\Debug\repository.pattern.pdb
+D:\Study and Software\Bazar Management\BazarManagementNew\app.service\bin\Debug\service.pattern.pdb
+D:\Study and Software\Bazar Management\BazarManagementNew\app.service\bin\Debug\EntityFramework.xml
+D:\Study and Software\Bazar Management\BazarManagementNew\app.service\bin\Debug\EntityFramework.SqlServer.xml
+D:\Study and Software\Bazar Management\BazarManagementNew\app.service\bin\Debug\LinqKit.xml
+D:\Study and Software\Bazar Management\BazarManagementNew\app.service\obj\Debug\app.service.csprojResolveAssemblyReference.cache
+D:\Study and Software\Bazar Management\BazarManagementNew\app.service\obj\Debug\app.service.dll
+D:\Study and Software\Bazar Management\BazarManagementNew\app.service\obj\Debug\app.service.pdb

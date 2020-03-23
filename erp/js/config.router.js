@@ -224,6 +224,25 @@ angular.module('app').run(
                       }]
                 }
             })
+            .state('app.MonthlyMealInfo', {
+                url: '/Bazar/MonthlyMealInfo',
+                templateUrl: urlPrefix + 'html/BazarExpense/MonthlyMealInfo.html',
+                resolve: {
+                    deps: ['$ocLazyLoad',
+                      function ($ocLazyLoad) {
+                          return $ocLazyLoad.load(['toaster']).then(
+                        function () {
+                            return $ocLazyLoad.load([urlPrefix + 'js/controllers/Bazar/MonthlyMealInfo.js',
+                                          urlPrefix + 'js/services/Bazar/BazarReportService.js',
+                                          urlPrefix + 'js/services/Bazar/MealManagementService.js',
+                                          urlPrefix + 'js/services/UserInfo/UserInfoService.js'
+
+                            ]);
+                        }
+                         );
+                      }]
+                }
+            })
         }
     ]
   );

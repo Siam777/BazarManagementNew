@@ -7,7 +7,7 @@ app.controller('BazarCollectionCtrl', ['$scope', 'CollectionService', 'toaster',
     $scope.BazarCollection = {};
     $scope.IsTable = true;
     $scope.IsCreatebtn = false;
-    $scope.itemsPerPage = 8;
+    $scope.itemsPerPage = 20;
     $scope.IsCreateBtn = false;
     $scope.IsEditBtn = false;
     $scope.GetNew = function () {
@@ -78,6 +78,7 @@ app.controller('BazarCollectionCtrl', ['$scope', 'CollectionService', 'toaster',
         $scope.IsTable = true;
         $scope.BazarCollection.Year = year;
         $scope.BazarCollection.MonthId = month;
+        $scope.BazarCollection.BazarTypeId = 1;
         $scope.IsSearch = true;
         $scope.IsCreate = false;
         $scope.IsCreateBtn = true;
@@ -113,6 +114,11 @@ app.controller('BazarCollectionCtrl', ['$scope', 'CollectionService', 'toaster',
             UserId: $scope.Bazar.UserId
         }, function (result) {
             $scope.BazarList = result;
+            $scope.BazarList.sort(function (a, b) {
+                var DateA = new Date(a.CollectionDate);
+                var DateB = new Date(b.CollectionDate);
+                return DateB - DateA;
+            });
             var ListLength = $scope.BazarList.length;
             var TotalCollection = 0;
             for (var i = 0; i < ListLength; i++) {
