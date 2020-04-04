@@ -32,12 +32,18 @@ app.controller('BazarReportCtrl', ['$scope', 'BazarReportService', 'toaster', '$
         $scope.isLoading = true;
         BazarReportService.GetReport({ Year: $scope.Bazar.Year, MonthId: $scope.Bazar.MonthId, BazarReportId: $scope.Bazar.BazarReportId }, function (result) {
             console.log(result);
-            $scope.BazarList = result;
+            $scope.BazarList = result;            
             if ($scope.BazarList.length > 0) {
+                var collection = 0;
                 if ($scope.Bazar.BazarReportId == 1) {
                     $scope.ReportName = "Bazar Report";
                     $scope.SetReport = "Bazar";
+                    for (var i = 0; i < $scope.BazarList.length; i++) {
+                        collection += $scope.BazarList[i].AmountPaid;
+                    }
+                    $scope.collection = collection;
                     $scope.TotalBazarCost = $scope.BazarList[0].TotalBazarCost;
+                    $scope.TotalInstallationCost = $scope.BazarList[0].TotalInstallationCost;
                     $scope.Month = $scope.BazarList[0].Month;
                     console.log($scope.TotalBazarCost);
                     console.log($scope.Month);

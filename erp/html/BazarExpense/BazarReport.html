@@ -78,7 +78,7 @@
                     </div>
                     <div class="col-sm-offset-1 col-sm-10" ng-show="IsBazar">
                         <div style="margin-top:10px;text-align:center">
-                            <span ng-if="TotalBazarCost"><b>Total {{SetReport}} Cost:&nbsp; {{TotalBazarCost}} &nbsp;&nbsp; Month: {{Month}}</b></span>                            
+                            <span ng-if="TotalBazarCost"><b> Month: {{Month}} &nbsp;&nbsp;Total Bazar Cost: {{TotalBazarCost}} Tk &nbsp;&nbsp;Total Installation Cost: {{TotalInstallationCost}} Tk &nbsp;&nbsp;Total Collection: {{collection}} </b></span>                            
                         </div>
                         <table class="table table-responsive table-striped table-bordered" ng-if="BazarList.length>0">
                             <thead>
@@ -92,6 +92,8 @@
                                     <th>Total Meal</th>
                                     <th>Meal Rate</th>
                                     <th>To Pay(TK.)</th>
+                                    <th>InstallationToPay</th>
+                                    <th>Total To Pay(Tk)</th>
                                     <th>Paid(Tk)</th>
                                     <th>Due</th>
                                     <th>Give Back</th>
@@ -111,9 +113,11 @@
                                     <td>{{x.TotalMeal}}</td>
                                     <td>{{x.MealRate}}</td>
                                     <td>{{x.AmountToPay}}</td>
+                                    <td>{{x.InstallationToPay}}</td>
+                                    <td>{{x.AmountToPay+x.InstallationToPay}}</td>
                                     <td>{{x.AmountPaid}}</td>
-                                    <td>{{(x.AmountToPay-x.AmountPaid)>0?((x.AmountToPay-x.AmountPaid)|number:2):'-'}}</td>
-                                    <td>{{(x.AmountPaid-x.AmountToPay)>0?((x.AmountPaid-x.AmountToPay)|number:2):'-'}}</td>
+                                    <td>{{((x.AmountToPay+x.InstallationToPay)-x.AmountPaid)>0?(((x.AmountToPay+x.InstallationToPay)-x.AmountPaid)|number:2):'-'}}</td>
+                                    <td>{{(x.AmountPaid-(x.AmountToPay+x.InstallationToPay))>0?((x.AmountPaid-(x.AmountToPay+x.InstallationToPay))|number:2):'-'}}</td>
                                 </tr>
                             </tbody>
                         </table>
