@@ -22,6 +22,7 @@ namespace app.Service
         void Insert(IUnitOfWorkAsync unitOfWorkAsync, BazarExpense BazarExpense);       
         void Update(IUnitOfWorkAsync unitOfWorkAsync, BazarExpense BazarExpense);
         void Delete(int Id, IUnitOfWorkAsync unitOfWorkAsync);
+         BazarExpense GetBazarById(int Id);
     }
 
     public class BazarExpenseService:Service<BazarExpense>, IBazarExpenseService

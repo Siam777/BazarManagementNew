@@ -2,7 +2,7 @@
 var apiUrlPrefix = 'http://localhost:9271/';
 var urlPrefix = '';
 angular.module('app', [
-    'ngAnimate',
+    'ngAnimate',    
     'ngCookies',
     'ngResource',
     'ngSanitize',
@@ -19,5 +19,6 @@ angular.module('app', [
     'angucomplete-alt',
     'ngTouch',
     'ngFileUpload'
+   // 'ngMaterial',
     //'autocomplete'
 ]);

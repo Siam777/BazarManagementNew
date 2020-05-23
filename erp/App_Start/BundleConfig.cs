@@ -27,15 +27,16 @@ namespace erp
                       //"~/Content/bootstrap.css",
                       "~/Content/site.css"));
             bundles.Add(new StyleBundle("~/bundle/styles").Include(
-                     //"~/css/bootstrap.css",
-                     "~/css/animate.css",
+                       //"~/css/bootstrap.css",
+                       "~/css/animate.css",                                                             
                      "~/css/font-awesome.min.css",
                      "~/css/simple-line-icons.css",
                      "~/css/font.css",
                      "~/css/app1.css",
                      "~/css/angular-tooltips.css",
                      "~/css/autoComplete/angucomplete-alt.css",
-                     "~/css/autoComplete/bariol.css"
+                     "~/css/autoComplete/bariol.css"                    
+                     //"~/css/datepicker.min.css"
                      ));
             bundles.Add(new ScriptBundle("~/bundles/jsFixed1").Include(
                        /* "~/Scripts/jquery-2.1.3.js",*/
@@ -43,7 +44,7 @@ namespace erp
                         "~/Scripts/jquery-migrate-1.2.1.js",
                         "~/vendor/jquery/jquery.jqprint.0.3.js",
                         "~/vendor/angular/angular.js",
-                        "~/vendor/angular/angular-animate/angular-animate.js",
+                        "~/vendor/angular/angular-animate/angular-animate.js",                                                                 
                         "~/vendor/angular/angular-cookies/angular-cookies.js",
                         "~/vendor/angular/angular-resource/angular-resource.js",
                         "~/vendor/angular/angular-sanitize/angular-sanitize.js",
@@ -68,6 +69,7 @@ namespace erp
                         "~/vendor/modules/pdf/jspdf.min.js",
                         "~/vendor/modules/pdf/html2canvas.js",
                         "~/vendor/modules/pdf/html2pdf.js"
+                        
                         ));
             bundles.Add(new ScriptBundle("~/bundles/jsChangeable").Include(
                         "~/js/App.js",

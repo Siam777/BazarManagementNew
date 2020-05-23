@@ -23,6 +23,9 @@ namespace app.Entities.Models.Mapping
             this.Property(t => t.InstituteId).HasColumnName("InstituteId");
             this.Property(t => t.MonthId).HasColumnName("MonthId");
             this.Property(t => t.Year).HasColumnName("Year");
+            this.Property(t => t.ImagePath).HasColumnName("ImagePath");
+            this.Property(t => t.ImageUrl).HasColumnName("ImageUrl");
+            this.Property(t => t.ImageBinary).HasColumnName("ImageBinary");
             this.HasRequired(t => t.Institute)
                  .WithMany(t => t.BazarExpense)
                  .HasForeignKey(d => d.InstituteId);

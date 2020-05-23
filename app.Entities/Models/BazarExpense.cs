@@ -17,6 +17,10 @@ namespace app.Entities.Models
         public int BazarTypeId { get; set; }
         public int MonthId { get; set; }
         public int Year { get; set; }
+        public string ImagePath { get; set; }
+        public byte[] ImageBinary { get; set; }
+        public string ImageUrl { get; set; }
+       
         public List<KeyValuePair<int, string>> BazarTypeList { get; set; }
         public virtual Institute Institute { get; set; }
     }

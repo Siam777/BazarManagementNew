@@ -4,6 +4,7 @@
         'update': { method: 'PUT', url: apiUrlPrefix + "api/BazarExpernse/update" },
         'Save': { method: 'POST', url: apiUrlPrefix + "api/BazarExpernse/Save" },
         'GetNew': { method: 'GET', url: apiUrlPrefix + "api/BazarExpense/GetNew" },
-        'Delete': { method: 'DELETE',params:{Id:'id'}, url: apiUrlPrefix + "api/BazarExpense/Delete" }
+        'Delete': { method: 'DELETE',params:{Id:'id'}, url: apiUrlPrefix + "api/BazarExpense/Delete" },
+        'GetExpenseById': { method: 'GET', params: { Id: 'id' }, url: apiUrlPrefix + "api/BazarExpense/GetBazarExpenseById" }
     });
 }]);

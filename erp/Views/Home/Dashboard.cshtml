@@ -24,10 +24,13 @@
 
     <!-- / menu -->
     <!-- content -->
+<div class="app-header navbar" style="position:fixed;top:200px">
+    @{Html.RenderPartial("Header");}
+</div>
     <div class="app-content" style="width:100%">
         <div ui-butterbar></div>
         <a href class="off-screen-toggle hide" ui-toggle-class="off-screen" data-target=".app-aside"></a>
-        <div style="margin-top: -19px;" app-content-body fade-in-up" ui-view></div>
+        <div style="margin-top: -19px;margin-left:4px;margin-right:4px" app-content-body fade-in-up" ui-view></div>
     </div>
     <!-- /content -->
     <!-- aside right -->

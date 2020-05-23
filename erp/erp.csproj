@@ -434,14 +434,17 @@
     <Content Include="css\autoComplete\bariol_bold-webfont.svg" />
     <Content Include="css\autoComplete\bariol_regular-webfont.svg" />
     <Content Include="css\bootstrap.css" />
+    <Content Include="css\datepicker.min.css" />
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\font.css" />
+    <Content Include="css\material.min.css" />
     <Content Include="css\simple-line-icons.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="html\app_dashboard_v1.html" />
+    <Content Include="html\BazarExpense\BazarExpenseDetails.html" />
     <Content Include="html\BazarExpense\BazarReport.html" />
     <Content Include="html\BazarExpense\BazarProcess.html" />
     <Content Include="html\BazarExpense\BazarCollection.html" />
@@ -475,6 +478,7 @@
     <Content Include="js\config.lazyload.js" />
     <Content Include="js\config.router.js" />
     <Content Include="js\config.router.settings.js" />
+    <Content Include="js\controllers\Bazar\BazarExpenseDetails.js" />
     <Content Include="js\controllers\Bazar\BazarReport.js" />
     <Content Include="js\controllers\Bazar\BazarProcess.js" />
     <Content Include="js\controllers\Bazar\BazarCollection.js" />
@@ -507,6 +511,9 @@
     <Content Include="obj\Debug\erp.pdb" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="Scripts\angular-animate.min.js" />
+    <Content Include="Scripts\angular-aria.min.js" />
+    <Content Include="Scripts\angular-messages.min.js" />
     <Content Include="Scripts\angular-moment.js" />
     <Content Include="Scripts\angular-moment.min.js" />
     <Content Include="Scripts\angularjs-dropdown-multiselect.min.js" />
@@ -578,6 +585,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\loadingoverlay.min.js" />
+    <Content Include="Scripts\angular-material.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\moment-with-locales.js" />
     <Content Include="Scripts\moment-with-locales.min.js" />
@@ -729,6 +737,7 @@
     <Content Include="vendor\jquery\footable\fonts\footable.woff" />
     <Content Include="Views\Home\Navigation.cshtml" />
     <Content Include="Views\Home\Dashboard.cshtml" />
+    <Content Include="Views\Home\Header.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -8,6 +8,7 @@ app.controller('BazarExpenseCtrl', ['$scope', 'BazarService','toaster', '$locati
     $scope.IsTable = true;
     $scope.IsCreatebtn = false;
     $scope.itemsPerPage = 20;
+    $scope.ImageUrl = [];
     $scope.GetNew = function () {
         BazarService.GetNew(function (result) {
             $scope.BazarTypeList = result.BazarTypeList;
@@ -57,8 +58,11 @@ app.controller('BazarExpenseCtrl', ['$scope', 'BazarService','toaster', '$locati
         $scope.IsCreatebtn = false;
         $scope.BazarExpense = {};
         $scope.EditBazarExpense = {};
+        $scope.ImageUrl = [];
+        $scope.stepsModel = [];
     }
     $scope.Edit = function (item) {
+        $scope.ImageUrl = JSON.parse(item.ImageUrl)
         $scope.IsTable = true;
         $scope.IsCreatebtn = true;
         $scope.EditBazarExpense = item;
@@ -96,6 +100,16 @@ app.controller('BazarExpenseCtrl', ['$scope', 'BazarService','toaster', '$locati
             }
         )
     }
+
+    $scope.selectFileforUpload = function (file) {
+        console.log(file);
+        $scope.SelectedFileForUpload = file[0];
+    }
+    $scope.selectEditFileforUpload = function (file) {
+        console.log(file);
+        $scope.SelectedFileForUpload = file[0];
+        console.log(file[0]);
+    }
     $scope.groupToPages = function () {
         $scope.pagedItems = [];
         if ($scope.BazarItem) {
@@ -126,6 +140,51 @@ app.controller('BazarExpenseCtrl', ['$scope', 'BazarService','toaster', '$locati
 
             return 'display';
     };
+    $scope.stepsModel = [];
+    $scope.imageUpload = function(event){
+        var files = event.target.files; //FileList object
+        console.log(files);
+        for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+            var reader = new FileReader();
+            reader.onload = $scope.imageIsLoaded; 
+            reader.readAsDataURL(file);
+        }
+    }
+    $scope.imageUploadEdit = function (event) {
+        var files = event.target.files; //FileList object
+        console.log(files);
+        for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+            var reader = new FileReader();
+            reader.onload = $scope.imageIsLoadedforEdit;
+            reader.readAsDataURL(file);
+        }
+    }
+    $scope.remove = function (index) {
+        $scope.stepsModel.splice(index);
+        console.log($scope.stepsModel);
+        angular.element("input[type='file']").val(null);
+    }
+    $scope.removeImage = function (index) {
+        $scope.ImageUrl.splice(index);
+        console.log($scope.ImageUrl);
+        angular.element("input[type='file']").val(null);
+    }
+    $scope.imageIsLoadedforEdit = function (e) {
+        console.log(e);
+        $scope.$apply(function() {
+            $scope.ImageUrl.push(e.target.result);
+            console.log($scope.ImageUrl);
+        });
+    }
+    $scope.imageIsLoaded = function (e) {
+        console.log(e);
+        $scope.$apply(function () {
+            $scope.stepsModel.push(e.target.result);
+            console.log($scope.stepsModel);
+        });
+    }
 
     $scope.setPage = function () {
         $scope.currentPage = this.n;
@@ -148,11 +207,16 @@ app.controller('BazarExpenseCtrl', ['$scope', 'BazarService','toaster', '$locati
         }
         var SaveData = angular.copy($scope.BazarExpense);
         console.log(SaveData);
+        var formData = new FormData();
+        SaveData.ImageUrl = JSON.stringify( $scope.stepsModel);
+        //formData.append("file", $scope.SelectedFileForUpload);
+        //formData.append("expense", SaveData);
         BazarService.Save(SaveData, function (result) {
             $scope.IsSearch = false;
             $scope.IsCreate = true;
             $scope.IsEdit = true;
             $scope.BazarExpense = {};
+            $scope.stepsModel = [];
             toaster.pop("success", "Succcessfully Saved");
             $scope.GetAll();
             $scope.isLoading = false;
@@ -167,11 +231,13 @@ app.controller('BazarExpenseCtrl', ['$scope', 'BazarService','toaster', '$locati
         }
         var UpdateData = angular.copy($scope.EditBazarExpense);
         console.log(UpdateData);
+        UpdateData.ImageUrl = JSON.stringify($scope.ImageUrl);
         BazarService.update(UpdateData, function (result) {
             $scope.IsSearch = false;
             $scope.IsCreate = true;
             $scope.IsEdit = true;
             $scope.IsCreatebtn = false;
+            $scope.ImageUrl = [];
             $scope.EditBazarExpense = {};
             toaster.pop("success", "Succcessfully Updated");
             $scope.GetAll();
@@ -197,3 +263,17 @@ app.controller('BazarExpenseCtrl', ['$scope', 'BazarService','toaster', '$locati
     }
 }]
 );
+app.directive('tooltip', function () {
+    return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+            element.hover(function () {
+                // on mouseenter
+                element.tooltip('show');
+            }, function () {
+                // on mouseleave
+                element.tooltip('hide');
+            });
+        }
+    };
+});

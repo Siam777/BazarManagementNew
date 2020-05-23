@@ -224,6 +224,22 @@ angular.module('app').run(
                       }]
                 }
             })
+                .state('app.BazarDetails', {
+                    url: '/Bazar/BazarDetails?id',
+                    templateUrl: urlPrefix + 'html/BazarExpense/BazarExpenseDetails.html',
+                    resolve: {
+                        deps: ['$ocLazyLoad',
+                          function ($ocLazyLoad) {
+                              return $ocLazyLoad.load(['toaster']).then(
+                            function () {
+                                return $ocLazyLoad.load([urlPrefix + 'js/controllers/Bazar/BazarExpenseDetails.js',
+                                              urlPrefix + 'js/services/Bazar/BazarService.js'
+                                ]);
+                            }
+                             );
+                          }]
+                    }
+                })
             .state('app.MonthlyMealInfo', {
                 url: '/Bazar/MonthlyMealInfo',
                 templateUrl: urlPrefix + 'html/BazarExpense/MonthlyMealInfo.html',
